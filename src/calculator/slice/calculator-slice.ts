@@ -1,39 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current, PayloadAction } from '@reduxjs/toolkit'
 
 import { config, data } from '../data'
+import { CalculatePayloadType, InitialStateType } from '../models'
+import { getPipeRunnigMeter } from '../utils'
 
-export type ConfigType = {
-  type: string
-  key: string
-  name: string
-  min?: number
-  max?: number
-  step?: number
-  value?: number
-}
-
-export type DataType = {
-  type: string
-  name: string
-  material?: string
-  unit: string
-  width?: number
-  price: number
-}
-
-type InitialStateType = {
-  data: DataType[]
-  config: ConfigType[]
-}
-
-const initialState: InitialStateType = { data, config }
+const initialState: InitialStateType = { data, config, result: { pipeRunnigMeter: null } }
 
 export const calculatorSlice = createSlice({
   name: 'calculator',
   initialState,
   reducers: {
-    calculate: state => state,
+    calculate: (state, action: PayloadAction<CalculatePayloadType>) => {
+      const { material, pipe, durability, length, width } = action.payload.data
+
+      const step = durability.step
+
+      console.log({ length, width, step, pipe, material })
+
+      state.result.pipeRunnigMeter = getPipeRunnigMeter(length, width, step, pipe.width)
+
+      console.log(current(state.result))
+    },
   },
 })
 
-export const calculatorReducer = calculatorSlice.reducer
+export const { reducer: calculatorReducer, actions: calculatorActions } = calculatorSlice
