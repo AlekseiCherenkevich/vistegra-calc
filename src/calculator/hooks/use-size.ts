@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 
-import { ConfigType } from '../slice'
+import { ConfigType } from '../models'
 
 export const useSize = (config: ConfigType[], key: 'length' | 'width') => {
   const configParam = config.find(el => el.key === key)

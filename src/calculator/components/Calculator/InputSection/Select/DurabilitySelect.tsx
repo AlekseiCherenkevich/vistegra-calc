@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react'
 
-import { ConfigType } from '../../../../slice'
+import { ConfigType } from '../../../../models'
 
 type PropsType = {
-  durability: string
+  durability: ConfigType
   durabilities: ConfigType[]
   changeDurability: (e: ChangeEvent<HTMLSelectElement>) => void
 }
@@ -12,9 +12,9 @@ export const DurabilitySelect: FC<PropsType> = ({ durability, durabilities, chan
   return (
     <div>
       <label htmlFor={'durability'}>durability: </label>
-      <select id={'durability'} onChange={changeDurability} value={durability}>
+      <select id={'durability'} onChange={changeDurability} value={durability.name}>
         {durabilities.map(d => (
-          <option key={d.key} value={d.value}>
+          <option key={d.key} value={d.name}>
             {d.name}
           </option>
         ))}

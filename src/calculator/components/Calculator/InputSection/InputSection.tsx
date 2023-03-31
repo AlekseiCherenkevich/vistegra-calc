@@ -1,19 +1,20 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { RootState } from '../../../../app/store'
 import { useDurability, useMaterial, usePipe, useSize } from '../../../hooks'
+import { configSelector, dataSelector } from '../../../selectors'
+import { calculatorActions } from '../../../slice'
 import { SCalculatorSection } from '../../../styles'
 
 import { LengthInput, WidthInput } from './Input'
 import { DurabilitySelect, MaterialSelect, PipeSelect } from './Select'
-const dataSelector = (state: RootState) => state.calculator.data
-const configSelector = (state: RootState) => state.calculator.config
 
 export const InputSection = () => {
   const data = useSelector(dataSelector)
   const config = useSelector(configSelector)
+
+  const dispatch = useDispatch()
 
   const { material, materials, changeMaterial } = useMaterial(data)
   const { pipe, pipes, changePipe } = usePipe(data)
@@ -23,6 +24,15 @@ export const InputSection = () => {
   const { value: width, changeValue: changeWidth } = useSize(config, 'width')
 
   console.log({ data, config })
+
+  const calculate = () => {
+    const payload = { data: { material, pipe, durability, length, width } }
+
+    console.log('calc')
+    if (!width && !length) return
+
+    dispatch(calculatorActions.calculate(payload))
+  }
 
   return (
     <SCalculatorSection>
@@ -35,6 +45,7 @@ export const InputSection = () => {
         durabilities={durabilities}
         changeDurability={changeDurability}
       />
+      <button onClick={calculate}>calculate</button>
     </SCalculatorSection>
   )
 }
