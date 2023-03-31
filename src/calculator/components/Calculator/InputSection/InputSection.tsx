@@ -23,12 +23,9 @@ export const InputSection = () => {
   const { value: length, changeValue: changeLength } = useSize(config, 'length')
   const { value: width, changeValue: changeWidth } = useSize(config, 'width')
 
-  console.log({ data, config })
-
   const calculate = () => {
     const payload = { data: { material, pipe, durability, length, width } }
 
-    console.log('calc')
     if (!width && !length) return
 
     dispatch(calculatorActions.calculate(payload))
