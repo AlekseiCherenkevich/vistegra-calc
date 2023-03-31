@@ -21,7 +21,15 @@ export type InitialStateType = {
   data: DataType[]
   config: ConfigType[]
   result: {
-    pipeRunnigMeter: number | null
+    pipe: {
+      pipeRunnigMeter: number | null
+      pipe: DataType | null
+    }
+    list: { listQuantity: number | null; list: DataType | null }
+    fix: {
+      fixQuantity: number | null
+      fix: DataType | null
+    }
   }
 }
 

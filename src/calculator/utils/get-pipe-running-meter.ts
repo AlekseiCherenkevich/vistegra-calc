@@ -4,7 +4,7 @@ export const getPipeRunnigMeter = (
   step?: number,
   pipeWidth?: number
 ) => {
-  if (!length || !width || !step || !pipeWidth) throw new Error('incorrect length, width, step')
+  if (!length || !width || !step || !pipeWidth) throw new Error('length, width or step not found')
 
   const pipeWidthRunningMeter = pipeWidth / 100
 
