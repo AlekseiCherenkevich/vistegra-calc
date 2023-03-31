@@ -1,17 +1,16 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 
 import { nanoid } from '@reduxjs/toolkit'
 
-import { usePipe } from '../../../../hooks/use-pipe'
 import { DataType } from '../../../../slice'
 
 type PropsType = {
-  data: DataType[]
+  pipe: string
+  pipes: DataType[]
+  changePipe: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const PipeSelect: FC<PropsType> = ({ data }) => {
-  const { pipe, pipes, changePipe } = usePipe(data)
-
+export const PipeSelect: FC<PropsType> = ({ pipe, pipes, changePipe }) => {
   return (
     <div>
       <label htmlFor={'pipe'}>pipe: </label>

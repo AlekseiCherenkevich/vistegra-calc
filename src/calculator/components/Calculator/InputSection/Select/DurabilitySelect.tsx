@@ -1,15 +1,14 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 
-import { useDurability } from '../../../../hooks/use-durability'
 import { ConfigType } from '../../../../slice'
 
 type PropsType = {
-  config: ConfigType[]
+  durability: string
+  durabilities: ConfigType[]
+  changeDurability: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const DurabilitySelect: FC<PropsType> = ({ config }) => {
-  const { durability, durabilities, changeDurability } = useDurability(config)
-
+export const DurabilitySelect: FC<PropsType> = ({ durability, durabilities, changeDurability }) => {
   return (
     <div>
       <label htmlFor={'durability'}>durability: </label>

@@ -1,17 +1,16 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 
 import { nanoid } from '@reduxjs/toolkit'
 
-import { useMaterial } from '../../../../hooks'
 import { DataType } from '../../../../slice'
 
 type PropsType = {
-  data: DataType[]
+  material: string
+  materials: DataType[]
+  changeMaterial: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const MaterialSelect: FC<PropsType> = ({ data }) => {
-  const { material, materials, changeMaterial } = useMaterial(data)
-
+export const MaterialSelect: FC<PropsType> = ({ material, materials, changeMaterial }) => {
   return (
     <div>
       <label htmlFor={'material'}>material: </label>

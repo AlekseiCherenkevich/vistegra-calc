@@ -7,10 +7,12 @@ export const ResultSection = () => {
     <SCalculatorSection>
       <table>
         <thead>
-          <td>Наименование</td>
-          <td>ед.</td>
-          <td>кол-во</td>
-          <td>сумма</td>
+          <tr>
+            <td>Наименование</td>
+            <td>ед.</td>
+            <td>кол-во</td>
+            <td>сумма</td>
+          </tr>
         </thead>
         <tbody>
           <tr>

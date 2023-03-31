@@ -1,15 +1,11 @@
-import React, { FC } from 'react'
-
-import { useSize } from '../../../../hooks'
-import { ConfigType } from '../../../../slice'
+import React, { ChangeEvent, FC } from 'react'
 
 type PropsType = {
-  config: ConfigType[]
+  length?: number
+  changeLength: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const LengthInput: FC<PropsType> = ({ config }) => {
-  const { value: length, changeValue: changeLength } = useSize(config, 'length')
-
+export const LengthInput: FC<PropsType> = ({ length, changeLength }) => {
   return (
     <div>
       length: <input type="number" value={length} onChange={changeLength} />
