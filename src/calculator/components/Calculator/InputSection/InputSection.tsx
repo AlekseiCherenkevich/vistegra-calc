@@ -1,25 +1,29 @@
 import React from 'react'
 
+import { useSelector } from 'react-redux'
+
+import { RootState } from '../../../../app/store'
 import { SCalculatorSection } from '../../../styles'
 
+import { LengthInput, WidthInput } from './Input'
+import { DurabilitySelect, MaterialSelect, PipeSelect } from './Select'
+
+const dataSelector = (state: RootState) => state.calculator.data
+const configSelector = (state: RootState) => state.calculator.config
+
 export const InputSection = () => {
+  const data = useSelector(dataSelector)
+  const config = useSelector(configSelector)
+
+  console.log({ data, config })
+
   return (
     <SCalculatorSection>
-      <div>
-        material: <input type="text" value={'steel'} />
-      </div>
-      <div>
-        pipe: <input type="text" value={'10'} />
-      </div>
-      <div>
-        width: <input type="text" value={'400'} />
-      </div>
-      <div>
-        length: <input type="text" value={'1000'} />
-      </div>
-      <div>
-        durability: <input type="text" value={'hard'} />
-      </div>
+      <MaterialSelect data={data} />
+      <PipeSelect data={data} />
+      <LengthInput config={config} />
+      <WidthInput config={config} />
+      <DurabilitySelect config={config} />
     </SCalculatorSection>
   )
 }
