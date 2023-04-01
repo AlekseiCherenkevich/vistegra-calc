@@ -1,5 +1,7 @@
 import { ConfigType } from '../models'
 
+import { roundNumber } from './round-number'
+
 export const getFixQuantity = (
   listMateral?: string,
   fixConfigs?: ConfigType[],
@@ -13,5 +15,5 @@ export const getFixQuantity = (
 
   if (!fixConfig) throw new Error('fixConfig not found')
 
-  return width * length * fixConfig.value!
+  return roundNumber(width * length * fixConfig.value!)
 }

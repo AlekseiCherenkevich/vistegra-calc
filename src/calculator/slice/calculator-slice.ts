@@ -2,12 +2,16 @@ import { createSlice, current, nanoid, PayloadAction } from '@reduxjs/toolkit'
 
 import { config, data } from '../data'
 import { CalculatePayloadType, InitialStateType } from '../models'
-import { getFixQuantity, getPipeRunnigMeter, getListQuantity } from '../utils'
+import { getFixQuantity, getPipeRunnigMeter, getListQuantity, roundNumber } from '../utils'
 
 const initialState: InitialStateType = {
   data,
   config,
   result: [],
+  ceil: {
+    length: null,
+    width: null,
+  },
 }
 
 export const calculatorSlice = createSlice({
@@ -26,15 +30,17 @@ export const calculatorSlice = createSlice({
 
       const fixConfigs = state.config.filter(c => c.type === 'fix')
 
-      const pipeRunnigMeter = getPipeRunnigMeter(length, width, step, pipeWidth)
-      const pipeTotalPrice = pipeRunnigMeter * pipe.price
+      const { pipeLength, ceil } = getPipeRunnigMeter(length, width, step, pipeWidth)
+      const pipeTotalPrice = pipeLength * pipe.price
 
       state.result.push({
         id: nanoid(),
         item: pipe,
-        quantity: pipeRunnigMeter,
+        quantity: pipeLength,
         totalPrice: pipeTotalPrice,
       })
+
+      state.ceil = ceil
 
       const listQuantity = getListQuantity(length, width, listWidth)
       const listTotalPrice = listQuantity * material.price
@@ -51,13 +57,13 @@ export const calculatorSlice = createSlice({
 
       if (!fixQuantity || !fix) throw new Error('fixQuantity or fix not found')
 
-      const fixTotlaPrice = fixQuantity * fix.price
+      const fixTotalPrice = roundNumber(fixQuantity * fix.price)
 
       state.result.push({
         id: nanoid(),
         item: fix,
         quantity: fixQuantity,
-        totalPrice: fixTotlaPrice,
+        totalPrice: fixTotalPrice,
       })
       console.log(current(state))
     },

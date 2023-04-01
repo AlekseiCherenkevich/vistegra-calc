@@ -21,6 +21,12 @@ export type InitialStateType = {
   data: DataType[]
   config: ConfigType[]
   result: ResultItem[]
+  ceil: CeilType
+}
+
+export type CeilType = {
+  length: number | null
+  width: number | null
 }
 
 export type ResultItem = {

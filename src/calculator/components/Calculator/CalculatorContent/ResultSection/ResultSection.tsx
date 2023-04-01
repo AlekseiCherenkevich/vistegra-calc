@@ -7,12 +7,13 @@ import {
   shoppingCartSelector,
   SShoppingCartIcon,
 } from '../../../../../shopping-cart'
-import { resultSelector } from '../../../../selectors'
+import { ceilSelector, resultSelector } from '../../../../selectors'
 import { SCalculatorSection } from '../../../../styles'
 
 export const ResultSection = () => {
   const resultItems = useSelector(resultSelector)
   const { products } = useSelector(shoppingCartSelector)
+  const { length: ceilLength, width: ceilWidth } = useSelector(ceilSelector)
 
   const dispatch = useDispatch()
 
@@ -50,6 +51,9 @@ export const ResultSection = () => {
         </thead>
         <tbody>{renderedResultItems}</tbody>
       </table>
+      <span>
+        Длина ячейки - {ceilLength} м, ширина - {ceilWidth} м
+      </span>
     </SCalculatorSection>
   )
 }
