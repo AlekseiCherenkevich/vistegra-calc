@@ -5,15 +5,14 @@ import { ConfigType } from '../models'
 export const useSize = (config: ConfigType[], key: 'length' | 'width') => {
   const configParam = config.find(el => el.key === key)
 
-  let min: number | undefined = undefined
-  let max: number | undefined = undefined
+  if (!configParam) throw new Error('configParam not found')
 
-  if (configParam) {
-    min = configParam.min
-    max = configParam.max
-  }
+  let min = configParam.min
+  let max = configParam.max
 
-  const [value, setValue] = useState<number | undefined>(min)
+  if (!min) throw new Error('min not found')
+
+  const [value, setValue] = useState(min)
 
   const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
     if (!configParam) return

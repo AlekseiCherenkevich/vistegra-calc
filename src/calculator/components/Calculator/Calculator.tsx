@@ -1,18 +1,14 @@
 import React from 'react'
 
-import { SCalculatorWrapper, Title } from '../../styles'
+import { Title } from '../../styles'
 
-import { InputSection } from './InputSection'
-import { ResultSection } from './ResultSection'
+import { CalculatorContent } from './CalculatorContent'
 
 export const Calculator = () => {
   return (
     <main>
       <Title>calc</Title>
-      <SCalculatorWrapper>
-        <InputSection />
-        <ResultSection />
-      </SCalculatorWrapper>
+      <CalculatorContent />
     </main>
   )
 }
