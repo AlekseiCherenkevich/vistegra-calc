@@ -1,27 +1,24 @@
 import React from 'react'
 
+import { nanoid } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {
-  shoppingCardActions,
-  shoppingCartSelector,
-  SShoppingCartIcon,
-} from '../../../../../shopping-cart'
+import { shoppingCardActions, SShoppingCartIcon } from '../../../../../shopping-cart'
 import { ceilSelector, resultSelector } from '../../../../selectors'
 import { SCalculatorSection } from '../../../../styles'
 
 export const ResultSection = () => {
   const resultItems = useSelector(resultSelector)
-  const { products } = useSelector(shoppingCartSelector)
   const { length: ceilLength, width: ceilWidth } = useSelector(ceilSelector)
 
   const dispatch = useDispatch()
 
   const renderedResultItems = resultItems.map(i => {
     const addToShoppingCart = () => {
-      // Проверяем добавили ли мы только что (в рамках одного расчета) товары
-      if (products.some(p => p.id === i.id)) return
-      dispatch(shoppingCardActions.addProduct({ product: i }))
+      // Новый id нужен, чтобы можно было добавлять одинаковы товар в корзину много раз
+      const newId = nanoid()
+
+      dispatch(shoppingCardActions.addProduct({ product: { ...i, id: newId } }))
     }
 
     return (

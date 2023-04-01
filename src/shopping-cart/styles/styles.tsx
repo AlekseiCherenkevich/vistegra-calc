@@ -5,6 +5,5 @@ export const SShoppingCartIcon = styled.button`
   background-size: contain;
   width: 30px;
   height: 30px;
-  background-color: red;
   border-radius: 5px;
 `
