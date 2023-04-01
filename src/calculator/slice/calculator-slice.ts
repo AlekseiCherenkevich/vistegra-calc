@@ -22,6 +22,8 @@ export const calculatorSlice = createSlice({
       const listWidth = material.width
       const listMaterial = material.material
 
+      state.result = []
+
       const fixConfigs = state.config.filter(c => c.type === 'fix')
 
       const pipeRunnigMeter = getPipeRunnigMeter(length, width, step, pipeWidth)
