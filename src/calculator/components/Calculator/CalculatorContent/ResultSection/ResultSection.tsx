@@ -2,17 +2,24 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { shoppingCardActions, SShoppingCartIcon } from '../../../../../shopping-cart'
+import {
+  shoppingCardActions,
+  shoppingCartSelector,
+  SShoppingCartIcon,
+} from '../../../../../shopping-cart'
 import { resultSelector } from '../../../../selectors'
 import { SCalculatorSection } from '../../../../styles'
 
 export const ResultSection = () => {
   const resultItems = useSelector(resultSelector)
+  const { products } = useSelector(shoppingCartSelector)
 
   const dispatch = useDispatch()
 
   const renderedResultItems = resultItems.map(i => {
     const addToShoppingCart = () => {
+      // Проверяем добавили ли мы только что (в рамках одного расчета) товары
+      if (products.some(p => p.id === i.id)) return
       dispatch(shoppingCardActions.addProduct({ product: i }))
     }
 
