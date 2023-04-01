@@ -20,17 +20,14 @@ export type DataType = {
 export type InitialStateType = {
   data: DataType[]
   config: ConfigType[]
-  result: {
-    pipe: {
-      pipeRunnigMeter: number | null
-      pipe: DataType | null
-    }
-    list: { listQuantity: number | null; list: DataType | null }
-    fix: {
-      fixQuantity: number | null
-      fix: DataType | null
-    }
-  }
+  result: ResultItem[]
+}
+
+export type ResultItem = {
+  id: string
+  quantity: number | null
+  item: DataType | null
+  totalPrice: number
 }
 
 export type CalculatePayloadType = {
