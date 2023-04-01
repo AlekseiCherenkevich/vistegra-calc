@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { Calculator } from '../../../calculator/components/Calculator'
+import { Calculator } from '../../../calculator'
+import { ShoppingCart } from '../../../shopping-cart'
 import { SContainer } from '../../styles'
 
 import { Header } from './Header'
@@ -11,6 +12,7 @@ export const App = () => {
       <Header />
       <SContainer>
         <Calculator />
+        <ShoppingCart />
       </SContainer>
     </div>
   )
