@@ -1,17 +1,33 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { SShoppingCartIcon } from '../../../../../shopping-cart'
+import { shoppingCardActions, SShoppingCartIcon } from '../../../../../shopping-cart'
 import { resultSelector } from '../../../../selectors'
 import { SCalculatorSection } from '../../../../styles'
 
 export const ResultSection = () => {
   const resultItems = useSelector(resultSelector)
 
-  const addToShoppingCart = () => {
-    console.log('addToShoppingCart')
-  }
+  const dispatch = useDispatch()
+
+  const renderedResultItems = resultItems.map(i => {
+    const addToShoppingCart = () => {
+      dispatch(shoppingCardActions.addProduct({ product: i }))
+    }
+
+    return (
+      <tr key={i.id}>
+        <td>{i.item?.name}</td>
+        <td>{i.item?.unit}</td>
+        <td>{i.quantity}</td>
+        <td>{i.totalPrice}</td>
+        <td>
+          <SShoppingCartIcon onClick={addToShoppingCart} />
+        </td>
+      </tr>
+    )
+  })
 
   return (
     <SCalculatorSection>
@@ -25,19 +41,7 @@ export const ResultSection = () => {
             <td>добавить в корзину</td>
           </tr>
         </thead>
-        <tbody>
-          {resultItems.map(i => (
-            <tr key={i.id}>
-              <td>{i.item?.name}</td>
-              <td>{i.item?.unit}</td>
-              <td>{i.quantity}</td>
-              <td>{i.totalPrice}</td>
-              <td>
-                <SShoppingCartIcon onClick={addToShoppingCart} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{renderedResultItems}</tbody>
       </table>
     </SCalculatorSection>
   )
