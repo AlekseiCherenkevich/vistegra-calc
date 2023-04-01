@@ -12,8 +12,3 @@ export const SCalculatorSection = styled.section`
   max-width: 100%;
   background-color: cornflowerblue;
 `
-
-export const Title = styled.h1`
-  text-align: center;
-  background-color: silver;
-`
