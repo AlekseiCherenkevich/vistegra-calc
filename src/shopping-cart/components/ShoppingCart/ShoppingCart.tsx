@@ -1,20 +1,23 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from '../../../app/store'
 import { Title } from '../../../shared'
+import { shoppingCardActions } from '../../slice'
 
 export const shoppingCartSelector = (state: RootState) => state.shoppingCard
 
 export const ShoppingCart = () => {
   const { products } = useSelector(shoppingCartSelector)
 
+  const dispatch = useDispatch()
+
   const totalPrice = products.reduce((accum: number, product) => accum + product.totalPrice, 0)
 
   const renderedProducts = products.map(p => {
     const removeProduct = () => {
-      console.log(p)
+      dispatch(shoppingCardActions.removeProduct({ id: p.id }))
     }
 
     return (
