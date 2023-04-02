@@ -11,7 +11,7 @@ export const SHeader = styled.header`
 export const SHeaderItem = styled.div`
   background-color: blueviolet;
 `
-export const SContainer = styled.div`
+export const SContainer = styled.main`
   margin: 0 auto;
   width: 100%;
   max-width: 800px;

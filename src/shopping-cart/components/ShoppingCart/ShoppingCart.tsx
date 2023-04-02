@@ -9,9 +9,9 @@ export const shoppingCartSelector = (state: RootState) => state.shoppingCard
 
 export const ShoppingCart = () => {
   return (
-    <main>
+    <article>
       <Title>Корзина товаров</Title>
       <ShoppingCartTable />
-    </main>
+    </article>
   )
 }

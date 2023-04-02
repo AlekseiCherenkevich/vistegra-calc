@@ -6,9 +6,9 @@ import { CalculatorContent } from './CalculatorContent'
 
 export const Calculator = () => {
   return (
-    <main>
-      <Title>calc</Title>
+    <article>
+      <Title>Расчет материалов</Title>
       <CalculatorContent />
-    </main>
+    </article>
   )
 }
