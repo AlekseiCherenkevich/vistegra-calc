@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC } from 'react'
 
 import { ConfigType } from '../../../../models'
-import { SSelectWrapper } from '../../../../styles'
+import { SSelect, SSelectWrapper } from '../../../../styles'
 
 type PropsType = {
   durability: ConfigType
@@ -12,14 +12,16 @@ type PropsType = {
 export const DurabilitySelect: FC<PropsType> = ({ durability, durabilities, changeDurability }) => {
   return (
     <SSelectWrapper>
-      <label htmlFor={'durability'}>durability: </label>
-      <select id={'durability'} onChange={changeDurability} value={durability.name}>
-        {durabilities.map(d => (
-          <option key={d.key} value={d.name}>
-            {d.name}
-          </option>
-        ))}
-      </select>
+      <label htmlFor={'durability'}>Прочность </label>
+      <SSelect>
+        <select id={'durability'} onChange={changeDurability} value={durability.name}>
+          {durabilities.map(d => (
+            <option key={d.key} value={d.name}>
+              {d.name}
+            </option>
+          ))}
+        </select>
+      </SSelect>
     </SSelectWrapper>
   )
 }

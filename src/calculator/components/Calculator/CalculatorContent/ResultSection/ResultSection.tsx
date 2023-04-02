@@ -14,7 +14,7 @@ export const ResultSection = () => {
     <SCalculatorSection>
       <ResultTable />
       <span>
-        Длина ячейки - {ceilLength} м, ширина - {ceilWidth} м
+        Размеры ячейки: длина - {ceilLength} м, ширина - {ceilWidth} м
       </span>
     </SCalculatorSection>
   )

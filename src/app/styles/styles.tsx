@@ -1,15 +1,18 @@
 import styled from 'styled-components'
 
 export const SHeader = styled.header`
-  background-color: palevioletred;
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
 `
 
 export const SHeaderItem = styled.div`
-  background-color: blueviolet;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `
 export const SContainer = styled.main`
   margin: 0 auto;

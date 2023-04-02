@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FC } from 'react'
 
-import { SSelectWrapper } from '../../../../styles'
-
+import { SInput, SSelectWrapper } from '../../../../styles'
 type PropsType = {
   width?: number
   changeWidth: (e: ChangeEvent<HTMLInputElement>) => void
@@ -10,8 +9,8 @@ type PropsType = {
 export const WidthInput: FC<PropsType> = ({ width, changeWidth }) => {
   return (
     <SSelectWrapper>
-      <label htmlFor={'width'}>Ширина:</label>
-      <input id={'width'} type="number" value={width} onChange={changeWidth} />
+      <label htmlFor={'width'}>Ширина</label>
+      <SInput id={'width'} type="number" value={width} onChange={changeWidth} />
     </SSelectWrapper>
   )
 }
