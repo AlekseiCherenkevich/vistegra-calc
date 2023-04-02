@@ -2,6 +2,7 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 
+import { useSortProducts } from '../../../hooks'
 import { SEmptyShoppingCart, SShoppingCartTable, SShoppingCartTableWrapper } from '../../../styles'
 import { shoppingCartSelector } from '../ShoppingCart'
 
@@ -13,13 +14,15 @@ export const ShoppingCartTable = () => {
 
   const totalPrice = products.reduce((accum: number, product) => accum + product.totalPrice, 0)
 
+  const { sortedProducts, changeSort, sort } = useSortProducts(products)
+
   if (!products.length) return <SEmptyShoppingCart>Корзина пуста</SEmptyShoppingCart>
 
   return (
     <SShoppingCartTableWrapper>
       <SShoppingCartTable>
-        <ShoppingCartTableHead />
-        <ShoppingCartTableBody products={products} />
+        <ShoppingCartTableHead changeSort={changeSort} sort={sort} />
+        <ShoppingCartTableBody products={sortedProducts} />
       </SShoppingCartTable>
       <p>ИТОГО: {totalPrice} руб.</p>
     </SShoppingCartTableWrapper>
