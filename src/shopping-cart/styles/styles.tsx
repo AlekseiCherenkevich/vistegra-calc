@@ -30,7 +30,7 @@ export const SShoppingCartTable = styled.table`
   @media screen and (max-width: 600px) {
     border: none;
     max-width: 500px;
-    margin-left: 20px;
+    margin: 0 10px;
 
     thead tr th {
       display: none;

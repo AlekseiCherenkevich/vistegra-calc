@@ -16,8 +16,8 @@ export const ShoppingCartTable = () => {
   if (!products.length) return <SEmptyShoppingCart>Корзина пуста</SEmptyShoppingCart>
 
   return (
-    <SShoppingCartTableWrapper style={{ border: '1px solid red' }}>
-      <SShoppingCartTable style={{ border: '1px solid red' }}>
+    <SShoppingCartTableWrapper>
+      <SShoppingCartTable>
         <ShoppingCartTableHead />
         <ShoppingCartTableBody products={products} />
       </SShoppingCartTable>
