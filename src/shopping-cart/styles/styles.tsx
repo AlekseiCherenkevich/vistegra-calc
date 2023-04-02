@@ -8,6 +8,7 @@ export const SShoppingCartIcon = styled.button`
   border-radius: 5px;
 `
 export const SShoppingCartTableWrapper = styled.article`
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
