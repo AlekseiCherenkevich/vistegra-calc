@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC } from 'react'
 import { nanoid } from '@reduxjs/toolkit'
 
 import { DataType } from '../../../../models'
-import { SSelect, SSelectWrapper } from '../../../../styles'
+import { SSelect, SSelectIputWrapper } from '../../../../styles'
 
 type PropsType = {
   material: DataType
@@ -13,7 +13,7 @@ type PropsType = {
 
 export const MaterialSelect: FC<PropsType> = ({ material, materials, changeMaterial }) => {
   return (
-    <SSelectWrapper>
+    <SSelectIputWrapper>
       <label htmlFor={'material'}>Профнастил </label>
       <SSelect>
         <select id={'material'} onChange={changeMaterial} value={material.name}>
@@ -24,6 +24,6 @@ export const MaterialSelect: FC<PropsType> = ({ material, materials, changeMater
           ))}
         </select>
       </SSelect>
-    </SSelectWrapper>
+    </SSelectIputWrapper>
   )
 }

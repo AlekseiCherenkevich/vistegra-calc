@@ -13,10 +13,10 @@ export const SCalculatorSection = styled.section`
   width: fit-content;
 `
 
-export const SSelectWrapper = styled.div`
+export const SSelectIputWrapper = styled.div`
   position: relative;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   label {
     display: block;
     width: 100px;
@@ -56,4 +56,16 @@ export const SInput = styled.input`
   &:focus {
     outline: none;
   }
+`
+
+export const SInputErrorParentWrapper = styled.div`
+  position: relative;
+`
+
+export const SInputError = styled.p`
+  margin: 0;
+  position: absolute;
+  top: 25px;
+  font-size: 14px;
+  color: rgba(255, 0, 0, 0.91);
 `

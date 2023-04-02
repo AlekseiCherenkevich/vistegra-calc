@@ -23,8 +23,8 @@ export const CalculatorContent = () => {
   const { pipe, pipes, changePipe } = usePipe(data)
   const { durability, durabilities, changeDurability } = useDurability(config)
 
-  const { value: length, changeValue: changeLength } = useSize(config, 'length')
-  const { value: width, changeValue: changeWidth } = useSize(config, 'width')
+  const { value: length, changeValue: changeLength, error: lengthError } = useSize(config, 'length')
+  const { value: width, changeValue: changeWidth, error: widthError } = useSize(config, 'width')
 
   const { isHiddenResult, showResult } = useToggleResultModes(
     material,
@@ -35,9 +35,11 @@ export const CalculatorContent = () => {
   )
 
   const calculate = () => {
-    const payload = { data: { material, pipe, durability, length, width } }
+    const payload = { data: { material, pipe, durability, length, width, lengthError, widthError } }
 
     if (!width || !length) throw new Error('width or length not found')
+
+    if (lengthError || widthError) return
 
     dispatch(calculatorActions.calculate(payload))
     showResult()
@@ -53,8 +55,8 @@ export const CalculatorContent = () => {
       <SCalculatorSection>
         <MaterialSelect material={material} materials={materials} changeMaterial={changeMaterial} />
         <PipeSelect pipe={pipe} pipes={pipes} changePipe={changePipe} />
-        <LengthInput length={length} changeLength={changeLength} />
-        <WidthInput width={width} changeWidth={changeWidth} />
+        <LengthInput length={length} changeLength={changeLength} error={lengthError} />
+        <WidthInput width={width} changeWidth={changeWidth} error={widthError} />
         <DurabilitySelect
           durability={durability}
           durabilities={durabilities}

@@ -13,16 +13,24 @@ export const useSize = (config: ConfigType[], key: 'length' | 'width') => {
   if (!min) throw new Error('min not found')
 
   const [value, setValue] = useState(min)
+  const [error, setError] = useState<string | null>(null)
 
   const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
     if (!configParam) return
 
-    const value = Number(e.currentTarget.value)
+    let value: string | number = e.currentTarget.value
 
-    if (min === undefined || max === undefined || value < min || value > max) return
+    const parsedValue = parseFloat(value)
 
-    setValue(value)
+    if (min === undefined || max === undefined) throw new Error('min or max not found')
+
+    parsedValue < min || parsedValue > max
+      ? setError(`Значение должно быть в пределах ${min} - ${max} м`)
+      : setError(null)
+    console.log(e)
+
+    setValue(parsedValue)
   }
 
-  return { value, changeValue }
+  return { error, value, changeValue }
 }

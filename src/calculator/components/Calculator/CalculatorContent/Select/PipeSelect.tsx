@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC } from 'react'
 import { nanoid } from '@reduxjs/toolkit'
 
 import { DataType } from '../../../../models'
-import { SSelect, SSelectWrapper } from '../../../../styles'
+import { SSelect, SSelectIputWrapper } from '../../../../styles'
 
 type PropsType = {
   pipe: DataType
@@ -13,7 +13,7 @@ type PropsType = {
 
 export const PipeSelect: FC<PropsType> = ({ pipe, pipes, changePipe }) => {
   return (
-    <SSelectWrapper>
+    <SSelectIputWrapper>
       <label htmlFor={'pipe'}>Труба </label>
       <SSelect>
         <select id={'pipe'} onChange={changePipe} value={pipe.name}>
@@ -24,6 +24,6 @@ export const PipeSelect: FC<PropsType> = ({ pipe, pipes, changePipe }) => {
           ))}
         </select>
       </SSelect>
-    </SSelectWrapper>
+    </SSelectIputWrapper>
   )
 }
