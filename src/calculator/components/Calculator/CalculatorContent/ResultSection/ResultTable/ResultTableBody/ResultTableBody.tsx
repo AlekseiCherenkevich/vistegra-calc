@@ -37,7 +37,6 @@ export const ResultTableBody = () => {
         <td aria-describedby={'Сумма'}>{i.totalPrice}</td>
         <td aria-describedby={'В корзине?'}>{checkProductInCsoppingCart(i.item)}</td>
         <td aria-describedby={'Добавить в корзину'}>
-          {/*<SShoppingCartIcon onClick={addToShoppingCart} />*/}
           <SButtonSmall onClick={addToShoppingCart}>Добавить</SButtonSmall>
         </td>
       </tr>
