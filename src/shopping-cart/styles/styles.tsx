@@ -13,7 +13,6 @@ export const SShoppingCartTableWrapper = styled.article`
   align-items: center;
   width: 100%;
   justify-content: center;
-  background-color: blue;
 `
 
 export const SShoppingCartTable = styled.table`
@@ -50,4 +49,8 @@ export const SShoppingCartTable = styled.table`
       margin-right: 20px;
     }
   }
+`
+
+export const SEmptyShoppingCart = styled.p`
+  text-align: center;
 `

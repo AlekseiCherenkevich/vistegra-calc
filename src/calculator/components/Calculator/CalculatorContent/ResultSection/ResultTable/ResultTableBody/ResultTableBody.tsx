@@ -3,14 +3,10 @@ import React from 'react'
 import { nanoid } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getSerializedValue } from '../../../../../../shared'
-import {
-  shoppingCardActions,
-  shoppingCartSelector,
-  SShoppingCartIcon,
-} from '../../../../../../shopping-cart'
-import { DataType } from '../../../../../models'
-import { resultSelector } from '../../../../../selectors'
+import { getSerializedValue, SButtonSmall } from '../../../../../../../shared'
+import { shoppingCardActions, shoppingCartSelector } from '../../../../../../../shopping-cart'
+import { DataType } from '../../../../../../models'
+import { resultSelector } from '../../../../../../selectors'
 
 export const ResultTableBody = () => {
   const resultItems = useSelector(resultSelector)
@@ -41,7 +37,8 @@ export const ResultTableBody = () => {
         <td aria-describedby={'Сумма'}>{i.totalPrice}</td>
         <td aria-describedby={'В корзине?'}>{checkProductInCsoppingCart(i.item)}</td>
         <td aria-describedby={'Добавить в корзину'}>
-          <SShoppingCartIcon onClick={addToShoppingCart} />
+          {/*<SShoppingCartIcon onClick={addToShoppingCart} />*/}
+          <SButtonSmall onClick={addToShoppingCart}>Добавить</SButtonSmall>
         </td>
       </tr>
     )

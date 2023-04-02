@@ -2,6 +2,7 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
+import { SButton } from '../../../../shared'
 import { useDurability, useMaterial, usePipe, useSize } from '../../../hooks'
 import { useToggleResultModes } from '../../../hooks/use-toggle-result-modes'
 import { configSelector, dataSelector } from '../../../selectors'
@@ -41,9 +42,8 @@ export const CalculatorContent = () => {
     dispatch(calculatorActions.calculate(payload))
     showResult()
   }
-
   const resultSection = isHiddenResult ? (
-    <button onClick={calculate}>calculate</button>
+    <SButton onClick={calculate}>Расчитать</SButton>
   ) : (
     <ResultSection />
   )

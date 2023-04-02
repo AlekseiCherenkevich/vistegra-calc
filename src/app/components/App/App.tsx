@@ -23,7 +23,7 @@ const router = createBrowserRouter(
 
 export const App = () => {
   return (
-    <div className="App">
+    <div>
       <RouterProvider router={router} />
     </div>
   )

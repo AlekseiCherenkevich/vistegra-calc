@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { ResultItem } from '../../../../../calculator'
+import { SButtonSmall } from '../../../../../shared'
 import { shoppingCardActions } from '../../../../slice'
 
 type PropsType = {
@@ -24,7 +25,7 @@ export const ShoppingCartTableBody: FC<PropsType> = ({ products }) => {
         <td aria-describedby={'Кол-во'}>{p.quantity}</td>
         <td aria-describedby={'Сумма'}>{p.totalPrice}</td>
         <td aria-describedby={'Удалить из корзины'}>
-          <button onClick={removeProduct}>-</button>
+          <SButtonSmall onClick={removeProduct}>Удалить</SButtonSmall>
         </td>
       </tr>
     )

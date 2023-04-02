@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 
-import { SShoppingCartTable, SShoppingCartTableWrapper } from '../../../styles'
+import { SEmptyShoppingCart, SShoppingCartTable, SShoppingCartTableWrapper } from '../../../styles'
 import { shoppingCartSelector } from '../ShoppingCart'
 
 import { ShoppingCartTableBody } from './ShoppingCartTableBody'
@@ -13,7 +13,7 @@ export const ShoppingCartTable = () => {
 
   const totalPrice = products.reduce((accum: number, product) => accum + product.totalPrice, 0)
 
-  if (!products.length) return <p>Корзина пуста</p>
+  if (!products.length) return <SEmptyShoppingCart>Корзина пуста</SEmptyShoppingCart>
 
   return (
     <SShoppingCartTableWrapper style={{ border: '1px solid red' }}>
