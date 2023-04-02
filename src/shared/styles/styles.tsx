@@ -8,6 +8,22 @@ export const Title = styled.h1`
 
 export const SCalculatorResultTable = styled(SShoppingCartTable)`
   margin-bottom: 20px;
+
+  @media screen and (max-width: 600px) {
+    tbody tr td {
+      height: 55px;
+      font-size: 14px;
+    }
+
+    tbody tr td:before {
+      width: 100px;
+      height: 100%;
+    }
+
+    tbody tr td:nth-child(5) {
+      display: none;
+    }
+  }
 `
 
 export const SButton = styled.button`
@@ -27,4 +43,12 @@ export const SButtonSmall = styled(SButton)`
   margin-top: 0;
   width: 100px;
   height: 25px;
+`
+
+export const SSortArrows = styled.img`
+  position: relative;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translateY(4px);
 `

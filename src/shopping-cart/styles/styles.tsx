@@ -55,3 +55,16 @@ export const SShoppingCartTable = styled.table`
 export const SEmptyShoppingCart = styled.p`
   text-align: center;
 `
+
+export const SSortableHeadCeils = styled.th<{ arrow?: string }>`
+  cursor: pointer;
+  position: relative;
+
+  &:after {
+    content: ${props => props.arrow};
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+`
