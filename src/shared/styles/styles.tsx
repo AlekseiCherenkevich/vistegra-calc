@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 import { SShoppingCartTable } from '../../shopping-cart'
@@ -26,13 +27,14 @@ export const SCalculatorResultTable = styled(SShoppingCartTable)`
   }
 `
 
-export const SButton = styled.button`
+export const SButton = styled(motion.button)`
   margin-top: 10px;
   width: 180px;
   height: 40px;
   border-color: var(--lightgray);
   background-color: var(--lightgray);
   color: white;
+  cursor: pointer;
   &:hover {
     background-color: var(--gray);
     border-color: var(--gray);
