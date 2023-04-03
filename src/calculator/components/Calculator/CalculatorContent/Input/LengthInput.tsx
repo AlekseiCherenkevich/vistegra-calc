@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, memo } from 'react'
 
 import {
   SInput,
@@ -13,7 +13,9 @@ type PropsType = {
   error?: string | null
 }
 
-export const LengthInput: FC<PropsType> = ({ length, changeLength, error }) => {
+export const LengthInput: FC<PropsType> = memo(({ length, changeLength, error }) => {
+  console.log('LengthInput')
+
   return (
     <SInputErrorParentWrapper>
       <SSelectIputWrapper>
@@ -23,4 +25,4 @@ export const LengthInput: FC<PropsType> = ({ length, changeLength, error }) => {
       <SInputError>{error}</SInputError>
     </SInputErrorParentWrapper>
   )
-}
+})

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, memo } from 'react'
 
 import {
   SInput,
@@ -6,13 +6,14 @@ import {
   SInputErrorParentWrapper,
   SSelectIputWrapper,
 } from '../../../../styles'
+
 type PropsType = {
   width?: number
   changeWidth: (e: ChangeEvent<HTMLInputElement>) => void
   error?: string | null
 }
 
-export const WidthInput: FC<PropsType> = ({ width, changeWidth, error }) => {
+export const WidthInput: FC<PropsType> = memo(({ width, changeWidth, error }) => {
   return (
     <SInputErrorParentWrapper>
       <SSelectIputWrapper>
@@ -22,4 +23,4 @@ export const WidthInput: FC<PropsType> = ({ width, changeWidth, error }) => {
       <SInputError>{error}</SInputError>
     </SInputErrorParentWrapper>
   )
-}
+})

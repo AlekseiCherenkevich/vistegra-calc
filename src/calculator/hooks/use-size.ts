@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, useCallback } from 'react'
 
 import { ConfigType } from '../models'
 
@@ -15,22 +15,24 @@ export const useSize = (config: ConfigType[], key: 'length' | 'width') => {
   const [value, setValue] = useState(min)
   const [error, setError] = useState<string | null>(null)
 
-  const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!configParam) return
+  const changeValue = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (!configParam) return
 
-    let value: string | number = e.currentTarget.value
+      let value: string | number = e.currentTarget.value
 
-    const parsedValue = parseFloat(value)
+      const parsedValue = parseFloat(value)
 
-    if (min === undefined || max === undefined) throw new Error('min or max not found')
+      if (min === undefined || max === undefined) throw new Error('min or max not found')
 
-    parsedValue < min || parsedValue > max
-      ? setError(`Значение должно быть в пределах ${min} - ${max} м`)
-      : setError(null)
-    console.log(e)
+      parsedValue < min || parsedValue > max
+        ? setError(`Значение должно быть в пределах ${min} - ${max} м`)
+        : setError(null)
 
-    setValue(parsedValue)
-  }
+      setValue(parsedValue)
+    },
+    [config, setError, setValue]
+  )
 
   return { error, value, changeValue }
 }
