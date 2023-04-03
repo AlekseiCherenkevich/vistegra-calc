@@ -22,6 +22,7 @@ export type InitialStateType = {
   config: ConfigType[]
   result: ResultItem[]
   ceil: CeilType
+  square: number | null
 }
 
 export type CeilType = {

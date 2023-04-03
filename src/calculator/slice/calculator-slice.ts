@@ -12,6 +12,7 @@ const initialState: InitialStateType = {
     length: null,
     width: null,
   },
+  square: null,
 }
 
 export const calculatorSlice = createSlice({
@@ -20,6 +21,10 @@ export const calculatorSlice = createSlice({
   reducers: {
     calculate: (state, action: PayloadAction<CalculatePayloadType>) => {
       const { material, pipe, durability, length, width } = action.payload.data
+
+      if (!length || !width) throw new Error('length or width not found')
+
+      state.square = length * width
 
       const step = durability.step
       const pipeWidth = pipe.width
