@@ -1,4 +1,5 @@
 import React, { FC, MouseEvent } from 'react'
+
 import { SortType } from '../../../../models'
 import { SSortableHeadCeils } from '../../../../styles'
 import { getSortArrows } from '../../../../utils'

@@ -31,7 +31,7 @@ export const calculatorSlice = createSlice({
       const fixConfigs = state.config.filter(c => c.type === 'fix')
 
       const { pipeLength, ceil } = getPipeRunnigMeter(length, width, step, pipeWidth)
-      const pipeTotalPrice = pipeLength * pipe.price
+      const pipeTotalPrice = roundNumber(pipeLength * pipe.price)
 
       state.result.push({
         id: nanoid(),
@@ -43,7 +43,7 @@ export const calculatorSlice = createSlice({
       state.ceil = ceil
 
       const listQuantity = getListQuantity(length, width, listWidth)
-      const listTotalPrice = listQuantity * material.price
+      const listTotalPrice = roundNumber(listQuantity * material.price)
 
       state.result.push({
         id: nanoid(),
