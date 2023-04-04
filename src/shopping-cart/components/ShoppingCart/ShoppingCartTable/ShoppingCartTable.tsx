@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { useSelector } from 'react-redux'
 
@@ -9,7 +9,7 @@ import { SEmptyShoppingCart, SShoppingCartTable, SShoppingCartTableWrapper } fro
 import { ShoppingCartTableBody } from './ShoppingCartTableBody'
 import { ShoppingCartTableHead } from './ShoppingCartTableHead'
 
-export const ShoppingCartTable = () => {
+export const ShoppingCartTable = memo(() => {
   const products = useSelector(productsSelector)
 
   const totalPrice = products.reduce((accum: number, product) => accum + product.totalPrice, 0)
@@ -27,4 +27,4 @@ export const ShoppingCartTable = () => {
       <p>ИТОГО: {totalPrice} руб.</p>
     </SShoppingCartTableWrapper>
   )
-}
+})

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, memo } from 'react'
 
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -11,7 +11,7 @@ type PropsType = {
   changeMaterial: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const MaterialSelect: FC<PropsType> = ({ material, materials, changeMaterial }) => {
+export const MaterialSelect: FC<PropsType> = memo(({ material, materials, changeMaterial }) => {
   return (
     <SSelectIputWrapper>
       <label htmlFor={'material'}>Профнастил </label>
@@ -26,4 +26,4 @@ export const MaterialSelect: FC<PropsType> = ({ material, materials, changeMater
       </SSelect>
     </SSelectIputWrapper>
   )
-}
+})

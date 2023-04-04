@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, memo } from 'react'
 
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -11,7 +11,7 @@ type PropsType = {
   changePipe: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const PipeSelect: FC<PropsType> = ({ pipe, pipes, changePipe }) => {
+export const PipeSelect: FC<PropsType> = memo(({ pipe, pipes, changePipe }) => {
   return (
     <SSelectIputWrapper>
       <label htmlFor={'pipe'}>Труба </label>
@@ -26,4 +26,4 @@ export const PipeSelect: FC<PropsType> = ({ pipe, pipes, changePipe }) => {
       </SSelect>
     </SSelectIputWrapper>
   )
-}
+})

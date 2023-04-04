@@ -1,33 +1,39 @@
-import React, { FC, MouseEvent } from 'react'
+import React, { FC, memo, MouseEvent } from 'react'
 
 import { SortType } from '../../../../models'
-import { SSortableHeadCeils } from '../../../../styles'
-import { getSortArrows } from '../../../../utils'
+
+import { ShoppingCartSortableHeadCeil } from './ShoppingCartHeadCeil'
 
 type PropsType = {
   sort: SortType
   changeSort: (event: MouseEvent<HTMLTableHeaderCellElement>) => void
 }
 
-export const ShoppingCartTableHead: FC<PropsType> = ({ sort, changeSort }) => {
+export const ShoppingCartTableHead: FC<PropsType> = memo(({ sort, changeSort }) => {
   return (
     <thead>
       <tr>
-        <SSortableHeadCeils id={'name'} onClick={changeSort}>
-          Наименование
-          {getSortArrows('name', sort)}
-        </SSortableHeadCeils>
+        <ShoppingCartSortableHeadCeil
+          title={'Наименование'}
+          name={'name'}
+          sort={sort}
+          changeSort={changeSort}
+        />
         <th>Ед.</th>
-        <SSortableHeadCeils id={'quantity'} onClick={changeSort}>
-          Кол-во
-          {getSortArrows('quantity', sort)}
-        </SSortableHeadCeils>
-        <SSortableHeadCeils id={'totalPrice'} onClick={changeSort}>
-          Сумма
-          {getSortArrows('totalPrice', sort)}
-        </SSortableHeadCeils>
+        <ShoppingCartSortableHeadCeil
+          title={'Кол-во'}
+          name={'quantity'}
+          sort={sort}
+          changeSort={changeSort}
+        />
+        <ShoppingCartSortableHeadCeil
+          title={'Сумма'}
+          name={'totalPrice'}
+          sort={sort}
+          changeSort={changeSort}
+        />
         <th>Удалить товар</th>
       </tr>
     </thead>
   )
-}
+})

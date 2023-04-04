@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export const ResultTableHead = () => {
+export const ResultTableHead = memo(() => {
   return (
     <thead>
       <tr>
@@ -13,4 +13,4 @@ export const ResultTableHead = () => {
       </tr>
     </thead>
   )
-}
+})

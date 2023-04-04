@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, memo, useCallback } from 'react'
 
 import { useDispatch } from 'react-redux'
 
@@ -10,7 +10,7 @@ type PropsType = {
   product: ResultItem
 }
 
-export const ShoppingCartTableRow: FC<PropsType> = ({ product }) => {
+export const ShoppingCartTableRow: FC<PropsType> = memo(({ product }) => {
   const dispatch = useDispatch()
 
   const removeProduct = useCallback(() => {
@@ -28,4 +28,4 @@ export const ShoppingCartTableRow: FC<PropsType> = ({ product }) => {
       </td>
     </tr>
   )
-}
+})

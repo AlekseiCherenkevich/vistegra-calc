@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, useCallback } from 'react'
 
 import { DataType } from '../models'
 
@@ -9,9 +9,12 @@ export const usePipe = (data: DataType[]) => {
 
   const [pipeName, setPipeName] = useState(initName)
 
-  const changePipe = (e: ChangeEvent<HTMLSelectElement>) => {
-    setPipeName(e.currentTarget.value)
-  }
+  const changePipe = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      setPipeName(e.currentTarget.value)
+    },
+    [setPipeName]
+  )
 
   const pipe = pipes.find(p => p.name === pipeName)
 

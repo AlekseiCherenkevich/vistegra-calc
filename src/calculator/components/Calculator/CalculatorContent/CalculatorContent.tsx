@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
 import { AnimatedButton } from '../../../../shared'
 import { useDurability, useMaterial, usePipe, useSize } from '../../../hooks'
 import { useToggleResultModes } from '../../../hooks/use-toggle-result-modes'
-import { configSelector, dataSelector } from '../../../selectors'
+import { dataSelector, configSelector } from '../../../selectors'
 import { calculatorActions } from '../../../slice'
 import { SCalculatorSection, SCalculatorWrapper } from '../../../styles'
 
@@ -13,7 +13,7 @@ import { LengthInput, WidthInput } from './Input'
 import { ResultSection } from './ResultSection'
 import { DurabilitySelect, MaterialSelect, PipeSelect } from './Select'
 
-export const CalculatorContent = () => {
+export const CalculatorContent = memo(() => {
   const data = useSelector(dataSelector)
   const config = useSelector(configSelector)
 
@@ -68,4 +68,4 @@ export const CalculatorContent = () => {
       {resultSection}
     </SCalculatorWrapper>
   )
-}
+})

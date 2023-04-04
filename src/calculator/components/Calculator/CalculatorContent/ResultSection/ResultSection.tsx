@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { useSelector } from 'react-redux'
 
@@ -7,7 +7,7 @@ import { SCalculatorSection } from '../../../../styles'
 
 import { ResultTable } from './ResultTable'
 
-export const ResultSection = () => {
+export const ResultSection = memo(() => {
   const { length: ceilLength, width: ceilWidth } = useSelector(ceilSelector)
   const square = useSelector(squareSelector)
 
@@ -20,4 +20,4 @@ export const ResultSection = () => {
       </p>
     </SCalculatorSection>
   )
-}
+})
