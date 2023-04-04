@@ -3,14 +3,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { useSortProducts } from '../../../hooks'
+import { productsSelector } from '../../../selectors'
 import { SEmptyShoppingCart, SShoppingCartTable, SShoppingCartTableWrapper } from '../../../styles'
-import { shoppingCartSelector } from '../ShoppingCart'
 
 import { ShoppingCartTableBody } from './ShoppingCartTableBody'
 import { ShoppingCartTableHead } from './ShoppingCartTableHead'
 
 export const ShoppingCartTable = () => {
-  const { products } = useSelector(shoppingCartSelector)
+  const products = useSelector(productsSelector)
 
   const totalPrice = products.reduce((accum: number, product) => accum + product.totalPrice, 0)
 

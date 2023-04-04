@@ -1,11 +1,15 @@
+import { createSelector } from '@reduxjs/toolkit'
+
 import { RootState } from '../../app/store'
 
-export const dataSelector = (state: RootState) => state.calculator.data
+export const calculatorSelector = (state: RootState) => state.calculator
 
-export const configSelector = (state: RootState) => state.calculator.config
+export const dataSelector = createSelector(calculatorSelector, state => state.data)
 
-export const resultSelector = (state: RootState) => state.calculator.result
+export const configSelector = createSelector(calculatorSelector, state => state.config)
 
-export const ceilSelector = (state: RootState) => state.calculator.ceil
+export const resultSelector = createSelector(calculatorSelector, state => state.result)
 
-export const squareSelector = (state: RootState) => state.calculator.square
+export const ceilSelector = createSelector(calculatorSelector, state => state.ceil)
+
+export const squareSelector = createSelector(calculatorSelector, state => state.square)
