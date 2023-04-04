@@ -8,7 +8,14 @@ type PropsType = {
 }
 
 export const AnimatedButton: FC<PropsType> = ({ calculate, children }) => (
-  <SButton onClick={calculate} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+  <SButton
+    onClick={calculate}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+  >
     {children}
   </SButton>
 )

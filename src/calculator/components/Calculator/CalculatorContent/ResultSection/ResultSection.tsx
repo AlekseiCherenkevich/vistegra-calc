@@ -12,11 +12,11 @@ export const ResultSection = () => {
   const square = useSelector(squareSelector)
 
   return (
-    <SCalculatorSection>
+    <SCalculatorSection initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <ResultTable />
-      <p>Площадь изделия - {square} м</p>
+      <p>Площадь изделия - {square} м.кв.</p>
       <p>
-        Размеры ячейки: длина - {ceilLength} м, ширина - {ceilWidth} м
+        Размеры ячейки: {ceilLength}х{ceilWidth} м.
       </p>
     </SCalculatorSection>
   )

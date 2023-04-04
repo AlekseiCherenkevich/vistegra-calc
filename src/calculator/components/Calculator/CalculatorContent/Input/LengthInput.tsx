@@ -14,15 +14,17 @@ type PropsType = {
 }
 
 export const LengthInput: FC<PropsType> = memo(({ length, changeLength, error }) => {
-  console.log('LengthInput')
-
   return (
     <SInputErrorParentWrapper>
       <SSelectIputWrapper>
         <label htmlFor={'length'}>Длина</label>
         <SInput id={'length'} type="number" value={length} onChange={changeLength} />
       </SSelectIputWrapper>
-      <SInputError>{error}</SInputError>
+      {error && (
+        <SInputError initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          {error}
+        </SInputError>
+      )}
     </SInputErrorParentWrapper>
   )
 })

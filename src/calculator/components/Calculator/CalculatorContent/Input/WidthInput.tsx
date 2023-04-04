@@ -20,7 +20,11 @@ export const WidthInput: FC<PropsType> = memo(({ width, changeWidth, error }) =>
         <label htmlFor={'width'}>Ширина</label>
         <SInput id={'width'} type="number" value={width} onChange={changeWidth} />
       </SSelectIputWrapper>
-      <SInputError>{error}</SInputError>
+      {error && (
+        <SInputError initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          {error}
+        </SInputError>
+      )}
     </SInputErrorParentWrapper>
   )
 })
