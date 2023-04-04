@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vistegra-calc/static/css/main.6ab2bac2.css",
+    "main.js": "/vistegra-calc/static/js/main.79488b70.js",
+    "static/media/img_1.png": "/vistegra-calc/static/media/img_1.f6fc03da2eaaffa82f0c.png",
+    "static/media/img_3.png": "/vistegra-calc/static/media/img_3.141636d2eb749a959a24.png",
+    "index.html": "/vistegra-calc/index.html",
+    "main.6ab2bac2.css.map": "/vistegra-calc/static/css/main.6ab2bac2.css.map",
+    "main.79488b70.js.map": "/vistegra-calc/static/js/main.79488b70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ab2bac2.css",
+    "static/js/main.79488b70.js"
+  ]
+}
