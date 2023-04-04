@@ -1,5 +1,5 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
-
 export const SCalculatorWrapper = styled.article`
   display: flex;
   flex-direction: column;
@@ -7,7 +7,7 @@ export const SCalculatorWrapper = styled.article`
   justify-content: space-between;
 `
 
-export const SCalculatorSection = styled.section`
+export const SCalculatorSection = styled(motion.section)`
   margin-top: 30px;
   max-width: 100%;
   width: fit-content;
@@ -62,7 +62,7 @@ export const SInputErrorParentWrapper = styled.div`
   position: relative;
 `
 
-export const SInputError = styled.p`
+export const SInputError = styled(motion.p)`
   margin: 0;
   position: absolute;
   top: 25px;

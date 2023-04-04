@@ -27,8 +27,15 @@ export const SShoppingCartTable = styled.table`
     border-collapse: collapse;
     padding: 8px 5px;
   }
+  th:nth-child(1) {
+    min-width: 183px;
+  }
+  th:nth-child(3),
+  th:nth-child(4) {
+    min-width: 87px;
+  }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     border: none;
     max-width: 500px;
     margin: 0 10px;
