@@ -1,8 +1,8 @@
-import { createSlice, current, nanoid, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 
 import { config, data } from '../data'
 import { CalculatePayloadType, InitialStateType } from '../models'
-import { getFixQuantity, getPipeRunnigMeter, getListQuantity, roundNumber } from '../utils'
+import { getFixQuantity, getListQuantity, getPipeRunnigMeter, roundNumber } from '../utils'
 
 const initialState: InitialStateType = {
   data,
@@ -70,7 +70,6 @@ export const calculatorSlice = createSlice({
         quantity: fixQuantity,
         totalPrice: fixTotalPrice,
       })
-      console.log(current(state))
     },
   },
 })
